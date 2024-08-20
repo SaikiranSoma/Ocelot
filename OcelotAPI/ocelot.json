@@ -1,6 +1,49 @@
-﻿namespace OcelotAPI
-{
-    public class ocelot
+﻿{
+  "GlobalConfiguration": {
+    "BaseUrl": "https://saikiranocelot.azurewebsites.net"
+  },
+  "Routes": [
     {
+      "UpstreamPathTemplate": "/Register/User",
+      "UpstreamHttpMethod": [
+        "Post"
+      ],
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/Authenticate/register-user",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "saikiran-auth-api.azurewebsites.net",
+          "Port": 443
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/Register/Admin",
+      "UpstreamHttpMethod": [
+        "Post"
+      ],
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/Authenticate/register-admin",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "saikiran-auth-api.azurewebsites.net",
+          "Port": 443
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/Login",
+      "UpstreamHttpMethod": [
+        "Post"
+      ],
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/Authenticate/login",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "saikiran-auth-api.azurewebsites.net",
+          "Port": 443
+        }
+      ]
     }
+  ]
 }
